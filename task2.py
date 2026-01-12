@@ -27,8 +27,6 @@ class Lecturer(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.grades = {}
-        
-       # 1) Получать оценки за лекции от студентов
 
 # эксперты, проверяющие домашние задания
 class Reviewer(Mentor):
