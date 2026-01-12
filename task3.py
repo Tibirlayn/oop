@@ -45,6 +45,10 @@ class Mentor:
         self.surname = surname
         self.courses_attached = []
     
+    def __str__(self):
+        return f"""Имя: {self.name}
+Фамилия: {self.surname}"""
+    
 # лекторы
 class Lecturer(Mentor):
     def __init__(self, name, surname):
