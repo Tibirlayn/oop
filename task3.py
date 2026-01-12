@@ -17,7 +17,7 @@ class Student:
         else:
             return 'Ошибка'
         
-    # Среднее значение оценок студента
+    # Среднее значение оценок студента (по всем оценкам)
     def average_grades(self):
         all_grades = []
 
@@ -55,7 +55,7 @@ class Lecturer(Mentor):
         super().__init__(name, surname)
         self.grades = {}
 
-    # Среднее значение оценок лектора
+    # Среднее значение оценок лектора (по всем оценкам)
     def average_grades(self):
         all_grades = []
 
@@ -69,6 +69,21 @@ class Lecturer(Mentor):
     # Оператор сравнения
     def __gt__(self, other):
         return self.average_grades() > other.average_grades()
+    
+    def __eq__(self, other):
+        return self.average_grades() == other.average_grades()
+
+    def __lt__(self, other):
+        return self.average_grades() < other.average_grades()
+    
+    def __rgt__(self, other):
+        return self.average_grades() > other.average_grades()
+    
+    def __req__(self, other):
+        return self.average_grades() == other.average_grades()
+
+    def __rlt__(self, other):
+        return self.average_grades() < other.average_grades()
 
     def __str__(self):
         grades = self.average_grades()
@@ -136,5 +151,5 @@ print(some_reviewer)
 print(some_lecturer)
 print(some_student)
 
-# Задача 2. Оператор сравнения
-print("Слабая подготовка студента при сильном преподавании" if some_lecturer > some_student else "Сильная подготовка студента при слабом преподавании")
+# Задача 3. Пункт 2: Оператор сравнения
+print(some_lecturer == some_student)
